@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (c) 2017, Gluon and/or its affiliates.
+    All rights reserved. Use is subject to license terms.
+
+    This file is available and licensed under the following license:
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+   - Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+   - Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in
+     the documentation and/or other materials provided with the distribution.
+   - Neither the name of Oracle Corporation and Gluon nor the names of its
+     contributors may be used to endorse or promote products derived
+     from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0"  fx:controller="mainController">
+    <children>
+        <Button id="btn_ekle" fx:id="btn_ekle" layoutX="49.0" layoutY="43.0" mnemonicParsing="false" onAction="#BtnEkleTiklandi" text="EKLE" />
+        <Button id="btn_sil" fx:id="btn_sil" layoutX="159.0" layoutY="43.0" mnemonicParsing="false" onAction="#BtnSilTiklandi" text="SİL" />
+        <Button id="btn_guncelle" fx:id="btn_guncelle" layoutX="242.0" layoutY="43.0" mnemonicParsing="false" onAction="#BtnGuncelleTiklandi" text="GÜNCELLE" />
+        <Button id="btn_sorgula" fx:id="btn_sorgula" layoutX="333.0" layoutY="43.0" mnemonicParsing="false" onAction="#BtnSorgulaTiklandi" text="SORGULA" />
+        <TableView id="table_kisiler" fx:id="table_kisiler" layoutX="36.0" layoutY="115.0" prefHeight="200.0" prefWidth="532.0">
+            <columns>
+                <TableColumn fx:id="kln_hstAdı" prefWidth="75.0" text="HastaAdı" />
+                <TableColumn fx:id="kln_memleket" minWidth="0.0" prefWidth="81.0" text="Memleket" />
+                <TableColumn fx:id="kln_meslek" prefWidth="75.0" text="Meslek" />
+                <TableColumn fx:id="kln_cinsiyet" prefWidth="75.0" text="Cinsiyet" />
+                <TableColumn fx:id="kln_ates" prefWidth="75.0" text="Ateş" />
+                <TableColumn fx:id="kln_teshis" prefWidth="75.0" text="Teşhis" />
+                <TableColumn fx:id="kln_tarih" prefWidth="75.0" text="Tarih" />
+            </columns>
+        </TableView>
+        <CheckBox id="check_teshis" fx:id="check_teshis" layoutX="372.0" layoutY="556.0" mnemonicParsing="false" text="Teşhis var mı?" />
+        <Slider id="Sld_derece" fx:id="sld_derece" blockIncrement="0.1" layoutX="52.0" layoutY="518.0" max="43.7" min="21.0" showTickLabels="true" showTickMarks="true" value="36.5" />
+        <Label id="lbl_derece" fx:id="lbl_derece" layoutX="201.0" layoutY="512.0" prefHeight="30.0" prefWidth="81.0" text="36.5 Derece" />
+        <ComboBox id="cmb_sehir" fx:id="cmb_sehir" layoutX="344.0" layoutY="399.0" prefWidth="150.0" promptText="ŞEHİRLER" />
+        <RadioButton id="rdo_kadın" fx:id="rdo_kadın" layoutX="107.0" layoutY="470.0" mnemonicParsing="false" selected="true" text="KADIN">
+            <toggleGroup>
+                <ToggleGroup fx:id="grp_cinsiyet" />
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton id="rdo_erkek" fx:id="rdo_erkek" layoutX="164.0" layoutY="470.0" mnemonicParsing="false" text="ERKEK" toggleGroup="$grp_cinsiyet" />
+        <Label id="lbl_cinsiyet" fx:id="lbl_cinsiyet" layoutX="25.0" layoutY="467.0" prefHeight="22.0" prefWidth="57.0" text="CİNSİYET" />
+        <Label id="lbl_meslek" fx:id="lbl_meslek" layoutX="303.0" layoutY="478.0" text="MESLEK" />
+        <RadioButton id="rdo_isci" fx:id="rdo_isci" layoutX="369.0" layoutY="479.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="İSÇİ">
+            <toggleGroup>
+                <ToggleGroup fx:id="grp_meslek" />
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton id="rdo_memur" fx:id="rdo_memur" layoutX="460.0" layoutY="479.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="110.0" text="MEMUR" toggleGroup="$grp_meslek" />
+        <RadioButton id="rdo_emekli" fx:id="rdo_emekli" layoutX="369.0" layoutY="507.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="82.0" text="EMEKLİ" toggleGroup="$grp_meslek" />
+        <RadioButton id="rdo_ogrenci" fx:id="rdo_ogrenci" layoutX="460.0" layoutY="507.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="92.0" text="ÖĞRENCİ" toggleGroup="$grp_meslek" />
+        <Label fx:id="lbl_hastaAdı" layoutX="9.0" layoutY="403.0" text="Hasta Adı :" />
+        <TextField fx:id="txt_hstAd" layoutX="73.0" layoutY="399.0" />
+        <Label layoutX="279.0" layoutY="403.0" text="Memleket :" />
+        <Label fx:id="lbl_ort_ates" layoutX="460.0" layoutY="47.0" prefHeight="17.0" prefWidth="133.0" text="ORTALAMA ATEŞ :" />
+        <Label fx:id="lbl_ort_sayi" layoutX="463.0" layoutY="68.0" prefHeight="17.0" prefWidth="133.0" text="KİŞİ SAYISI :" />
+        <DatePicker fx:id="date_picker_1" layoutX="132.0" layoutY="611.0" />
+        <Label layoutX="34.0" layoutY="613.0" text="DatePicker-1">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="date_picker_2" layoutX="429.0" layoutY="611.0" onAction="#DatePickerChange" />
+        <Label layoutX="331.0" layoutY="613.0" text="DatePicker-2">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <BarChart fx:id="chrt_bar" layoutX="763.0" layoutY="24.0" prefHeight="266.0" prefWidth="416.0">
+            <xAxis>
+                <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" />
+            </yAxis>
+        </BarChart>
+        <PieChart fx:id="chrt_pie" layoutX="790.0" layoutY="338.0" prefHeight="339.0" prefWidth="400.0" />
+    </children>
+</AnchorPane>
